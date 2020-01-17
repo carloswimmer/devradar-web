@@ -3,6 +3,7 @@ import React from 'react';
 import './global.css';
 import './App.css';
 import './Sidebar.css';
+import './Main.css';
 
 function App() {
   return (
@@ -35,7 +36,55 @@ function App() {
         </form>
       </aside>
       <main>
+        <ul>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <div className="user-info">
+                <strong>Carlos Wimmer</strong>
+                <span>ReactJS, Vue.js, Node.js</span>
+              </div>
+            </header>
+            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
+            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
+          </li>
 
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <div className="user-info">
+                <strong>Carlos Wimmer</strong>
+                <span>ReactJS, Vue.js, Node.js</span>
+              </div>
+            </header>
+            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
+            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
+          </li>
+
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <div className="user-info">
+                <strong>Carlos Wimmer</strong>
+                <span>ReactJS, Vue.js, Node.js</span>
+              </div>
+            </header>
+            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
+            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
+          </li>
+
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <div className="user-info">
+                <strong>Carlos Wimmer</strong>
+                <span>ReactJS, Vue.js, Node.js</span>
+              </div>
+            </header>
+            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
+            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
+          </li>
+        </ul>
       </main>
     </div>
   );
