@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './global.css';
 import './App.css';
@@ -6,6 +6,26 @@ import './Sidebar.css';
 import './Main.css';
 
 function App() {
+  const [latitude, setLatitude] = useState('')
+  const [longitude, setLongitude] = useState('')
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords
+
+        setLatitude(latitude)
+        setLongitude(longitude)
+      },
+      (err) => {
+        console.log(err)
+      },
+      {
+        timeout: 30000
+      }
+    )
+  }, [])
+
   return (
     <div id="app">
       <aside>
@@ -24,12 +44,26 @@ function App() {
           <div className="input-group">
             <div className="input-block">
               <label htmlFor="latitude">Latitude</label>
-              <input type="number" name="latitude" id="latitude" required />
+              <input 
+                type="number" 
+                name="latitude" 
+                id="latitude" 
+                required 
+                value={latitude} 
+                onChange={e => setLatitude(e.target.value)}
+              />
             </div>
 
             <div className="input-block">
               <label htmlFor="longitude">Longitude</label>
-              <input type="number" name="longitude" id="longitude" required />
+              <input 
+                type="number" 
+                name="longitude" 
+                id="longitude" 
+                required 
+                value={longitude} 
+                onChange={e => setLongitude(e.target.value)}
+              />
             </div>
           </div>
           <button type="submit">Salvar</button>
@@ -39,7 +73,7 @@ function App() {
         <ul>
           <li className="dev-item">
             <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
               <div className="user-info">
                 <strong>Carlos Wimmer</strong>
                 <span>ReactJS, Vue.js, Node.js</span>
@@ -51,7 +85,7 @@ function App() {
 
           <li className="dev-item">
             <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
               <div className="user-info">
                 <strong>Carlos Wimmer</strong>
                 <span>ReactJS, Vue.js, Node.js</span>
@@ -63,7 +97,7 @@ function App() {
 
           <li className="dev-item">
             <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
               <div className="user-info">
                 <strong>Carlos Wimmer</strong>
                 <span>ReactJS, Vue.js, Node.js</span>
@@ -75,7 +109,7 @@ function App() {
 
           <li className="dev-item">
             <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer"/>
+              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
               <div className="user-info">
                 <strong>Carlos Wimmer</strong>
                 <span>ReactJS, Vue.js, Node.js</span>
