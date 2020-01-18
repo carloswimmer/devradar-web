@@ -7,14 +7,25 @@ import './Sidebar.css';
 import './Main.css';
 
 function App() {
+  const [devs, setDevs] = useState([])
+
   const [github_username, setGithubUsername] = useState('')
   const [techs, setTechs] = useState('')
-
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
 
   useEffect(() => {
     getCoordinates()
+  }, [])
+
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get('/devs')
+
+      setDevs(response.data)
+    }
+
+    loadDevs()
   }, [])
 
   const getCoordinates = () => {
@@ -51,6 +62,8 @@ function App() {
     })
 
     clearForm()
+
+    setDevs([...devs, response.data])
   }
 
   return (
@@ -112,53 +125,19 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
-              <div className="user-info">
-                <strong>Carlos Wimmer</strong>
-                <span>ReactJS, Vue.js, Node.js</span>
-              </div>
-            </header>
-            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
-            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
-              <div className="user-info">
-                <strong>Carlos Wimmer</strong>
-                <span>ReactJS, Vue.js, Node.js</span>
-              </div>
-            </header>
-            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
-            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
-              <div className="user-info">
-                <strong>Carlos Wimmer</strong>
-                <span>ReactJS, Vue.js, Node.js</span>
-              </div>
-            </header>
-            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
-            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/19734511?s=460&v=4" alt="Carlos Wimmer" />
-              <div className="user-info">
-                <strong>Carlos Wimmer</strong>
-                <span>ReactJS, Vue.js, Node.js</span>
-              </div>
-            </header>
-            <p>FrontEnd Developer focused on efficient interface design and pleasant user experience.</p>
-            <a href="https://github.com/carloswimmer">Acessar perfil no github</a>
-          </li>
+          {devs.map(dev => (
+            <li key={dev._id} className="dev-item">
+              <header>
+                <img src={dev.avatar_url} alt={dev.name} />
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>{dev.techs.join(', ')}</span>
+                </div>
+              </header>
+              <p>{dev.bio ? dev.bio : 'Application developer and Github colaborator.'}</p>
+              <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no github</a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
