@@ -13,7 +13,7 @@ function DevItem({ dev }) {
           <span>{dev.techs.join(', ')}</span>
         </div>
       </header>
-      <p>{dev.bio ? dev.bio : 'Application developer and Github colaborator.'}</p>
+      <p>{dev.bio ? dev.bio : 'App developer and Github colaborator.'}</p>
       <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no github</a>
     </li>
   )
