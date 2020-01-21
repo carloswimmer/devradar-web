@@ -13,5 +13,6 @@ See the print below:
 
 ## Future improvements
 This is just a MVP, here are some ideas to make it better:
+* create a title bar with app logo
 * improve layout using a screen with a modal
 * implement update and delete controls on cards
