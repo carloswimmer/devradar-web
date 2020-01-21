@@ -1,5 +1,5 @@
 # DevRadar Web
-MVP to study JS stack (Node.js, React, React Native) proposed by RocketSeat on Omnistack Week 10.
+MVP to study JS stack (Node.js, React, React Native) proposed by [RocketSeat](https://rocketseat.com.br/) on Omnistack Week 10.
 
 ## Description
 This part of the project is a webapp to register new devs that will be shown on mobile. To make this registration, 
@@ -16,3 +16,12 @@ This is just a MVP, here are some ideas to make it better:
 * create a title bar with app logo
 * improve layout using a screen with a modal
 * implement update and delete controls on cards
+
+
+## Just clone and run
+```bash
+git clone https://github.com/carloswimmer/devradar-web.git
+cd devradar-web
+yarn install
+yarn start
+```
